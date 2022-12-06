@@ -22,46 +22,72 @@ Crea un nuevo repositorio o clona uno ya existente.
 - git status 
   --> Muestra los archivos nuevos o modificados que deben confirmarse.
 - git add [file]
-  --> Toma una instantánea del archivo para preparar la versión
+  --> Realiza una instancia para una nueva version del archivo o documento.
+- git add .
+  --> Agrega todos los cambios al siguiente commit. (todos los archivos)
 - git reset [file]
   --> Mueve el archivo del área de espera, pero preserva su contenido
 - git diff
-  --> Muestra las diferencias de archivos que no se han enviado aún al área de espera
+  --> Muestra los archivos que tienen diferencia y que aun no se han enviado es decir estan en lista de espera.
 - git diff --staged
   --> Muestra las diferencias del archivo entre el área de espera y la última versión del archivo
 - git commit -m "[descriptive message]"
-  --> 
+  --> Confirma los nuevos cambios o la nueva version del archivo junto a un mensaje descriptivo.
+
+## CAMBIOS GRUPALES
 - git branch
+  --> Muestra todas las ramas que existen en el repositorio actual.
 - git branch [branch-name]
-- git checkout
+  --> Crea una nueva rama con su nombre especifico
+- git checkout [branch-name]
+  --> Cambia a la rama especificada y actualiza el directorio.
 - git merge [branch]
-- git log
+  --> Fusiona el historial de la rama especificada con la rama actual.
+- git branch -d [branch-name]
+  --> Borra la rama especificada
 
-## INSPECT & COMPARE
-- git log
-- git log branchB..branchA
-- git log --follow [file]
-- git diff branchB...branchA
-- git show [SHA]
-
-## SHARE & UPDATE
-- git remote add [alias] [url]
-- git fetch [alias]
-- git merge [alias]/[branch]
-- git push [alias] [branch]
-- git pull
-
-## TRACKING PATH CHANGES
+## NOMBRES DEL ARCHIVO DE REFACTORIZACIÓN
 - git rm [file]
-- git mv [existing-path] [new-path]
-- git log --stat -M
+  --> Borra el archivo del directorio activo y pone en el área de espera el archivo borrado
+- git rm --cached [file]
+  --> Retira el archivo del control de versiones, pero preserva el archivo a nivel local
+- git mv [file-original] [file-renamed]
+  --> Cambia el nombre del archivo y lo prepara para commit
+  
+  
+## SINCRONIZAR CAMBIOS
+- git fetch [alias]
+  --> Descarga todo el historial del marcador del repositorio
+- git merge [alias]/[branch]
+  --> Combina la rama del marcador con la rama local actual
+- git push [alias] [branch]
+  --> Carga todos los commits de la rama local al GitHub
+- git pull
+  --> Descarga el historial del marcador e incorpora cambios
 
-## REWRITE HISTORY
-- git rebase [branch]
+## REPASAR HISTORIAL
+- git log
+  --> Enumera el historial de la versión para la rama actual
+- git log --follow [file]
+  --> Enumera el historial de versión para el archivo, incluidos los cambios
+de nombre
+- git diff [first-branch]...[second-branch]
+  --> Muestra las diferencias de contenido entre dos ramas
+- git show [commit]
+  --> Produce metadatos y cambios de contenido del commit especificado
+  
+## REHACER COMMITS
+- git reset [commit]
+  --> Deshace todos los commits después de [commit], preservando los cambios localmente 
 - git reset --hard [commit]
+  --> Desecha todo el historial y regresa al commit especificado
 
-## TEMPORARY COMMITS
+## GUARDAR FRAGMENTOS
 - git stash
+  --> Almacena temporalmente todos los archivos tracked modificados
 - git stash list
+  --> Enumera todos los sets de cambios en guardado rápido
 - git stash pop
+  --> Restaura los archivos guardados recientemente
 - git stash drop
+  --> Elimina el set de cambios en guardado rápido más reciente
