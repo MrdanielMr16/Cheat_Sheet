@@ -1,10 +1,13 @@
 # **Cheat sheet de Git**
 
-## Setup
+## CONFIGURAR HERRAMIENTAS
 
-- git config --global user.name “[firstname lastname]”
-- git config --global user.email “[valid-email]”
+- git config --global user.name “[Su nombre]”
+    Establece su nombre para que aparezcan en todos los comits que usted realice.
+- git config --global user.email “[email-valido]”
+    Establece su email para que al momento de realizar un comit aparezca en la informacion el email que usted registro
 - git config --global color.ui auto
+    Habilita la útil colorización del producto de la línea de comando
 
 
 ## Setup & Init
